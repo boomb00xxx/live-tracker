@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Tracker - Demo UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Live Tracker</h1>
+      <nav class="tabs" id="tabs">
+        <button data-tab="auth" class="tab active">Авторизация</button>
+        <button data-tab="tasks" class="tab" id="tab-tasks" disabled>Задачи</button>
+      </nav>
+    </header>
+
+    <section class="view" id="view-auth">
+      <div class="grid">
+        <section class="card">
+          <h2>Регистрация</h2>
+          <form id="register-form" class="form">
+            <label>
+              Логин
+              <input type="text" id="reg-username" required />
+            </label>
+            <label>
+              Email
+              <input type="email" id="reg-email" required />
+            </label>
+            <label>
+              Пароль
+              <input type="password" id="reg-password" required />
+            </label>
+            <button type="submit" class="btn primary">Зарегистрироваться</button>
+          </form>
+          <div class="msg" id="register-msg"></div>
+        </section>
+
+        <section class="card">
+          <h2>Логин</h2>
+          <form id="login-form" class="form">
+            <label>
+              Логин
+              <input type="text" id="login-username" required />
+            </label>
+            <label>
+              Пароль
+              <input type="password" id="login-password" required />
+            </label>
+            <button type="submit" class="btn primary">Войти</button>
+          </form>
+          <div class="msg" id="login-msg"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Токен</h2>
+        <div class="row">
+          <input id="token" type="text" placeholder="Bearer токен" readonly />
+        </div>
+      </section>
+    </section>
+
+    <section class="view hidden" id="view-tasks">
+      <div class="bar">
+        <div class="left">
+          <span id="hello"></span>
+        </div>
+        <div class="right">
+          <button id="back-to-auth" class="btn">Выйти</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <h2>Задачи</h2>
+        <form id="task-form" class="row">
+          <input type="number" id="user-id" placeholder="user_id" required readonly />
+          <input type="text" id="task-title" placeholder="Заголовок" required />
+          <input type="text" id="task-desc" placeholder="Описание" />
+          <button type="submit" class="btn primary">Добавить</button>
+        </form>
+        <div class="row">
+          <button id="load-tasks" class="btn">Загрузить</button>
+        </div>
+        <ul id="tasks"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  </body>
+  </html>
+
+
